@@ -27,7 +27,7 @@ select avg(length) as average_duration
 from film;
 
 -- 8. What's the average movie duration expressed in format (hours, minutes)?
-select concat(floor((avg(length))/60),'h',round((avg(length))%60)) as average_duration
+select concat(floor((avg(length))/60),'h',round((avg(length))%60),'m') as average_duration
 from film;
 
 -- 9. How many movies longer than 3 hours?
@@ -35,9 +35,9 @@ select count(length) from film
 where length>180;
 
 -- 10. Get the name and email formatted. Example: Mary SMITH - mary.smith@sakilacustomer.org.
-select concat(left(first_name,1), substr(lower(first_name), 2, 30),' ', last_name, ' - ', lower(email)) as a
+select concat(left(first_name,1), substr(lower(first_name), 2, 30),' ', last_name, ' - ', lower(email)) as formatted_info
 from customer;
 
 -- 11. What's the length of the longest film title?
-select title from film
-where length = (select MAX(length) from film);
+select concat(floor((max(length))/60),'h',round((max(length))%60),'m')
+from film;
