@@ -39,5 +39,5 @@ select concat(left(first_name,1), substr(lower(first_name), 2, 30),' ', last_nam
 from customer;
 
 -- 11. What's the length of the longest film title?
-select concat(floor((max(length))/60),'h',round((max(length))%60),'m')
+select max(length(title)) as longest_title_length
 from film;
