@@ -76,19 +76,12 @@ where length > 180
 order by title asc;
 
 -- 10. Get the name and email formatted. Example: Mary SMITH - mary.smith@sakilacustomer.org.
+-- A: see the code below
 use sakila;
 
 select concat(upper(substr(first_name, 1, 1)), lower(substr(first_name,2))), 
 last_name,
 lower(email) as new_email from customer;
-
-
-
-
-select *, lower('e-mail') from customer;
-
-select lower(first_name, e-mail)
-from customer;
 
 
 -- 11. What's the length of the longest film title?
