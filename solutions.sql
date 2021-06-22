@@ -28,6 +28,9 @@
 -- SELECT concat(floor(avg(length)/60), 'h', round(avg(length)%60), 'm') as avg_duration
 -- FROM film;
 -- -> I'm cheating here! 
+-- proper way:
+-- SELECT sec_to_time(round(avg(length))*60) as avg_duration
+-- FROM film;
 
 -- 9. How many movies longer than 3 hours?
 -- SELECT count(length) FROM film
