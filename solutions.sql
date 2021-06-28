@@ -1,21 +1,39 @@
--- 1. Select all the actors with the first name ‘Scarlett’.
+-- lab-sql-2
+USE sakila;
 
--- 2. Select all the actors with the last name ‘Johansson’.
+select * from sakila.actor
+where first_name = 'Scarlett';
 
--- 3. How many films (movies) are available for rent? (Total amount of movies)
+select * from sakila.actor
+where last_name = 'Johansson';
 
--- 4. How many films have been rented?
+SELECT sum(film_id)
+FROM sakila.film;
 
--- 5. What is the shortest and longest rental period?
+SELECT sum(rental_id)
+FROM sakila.rental;
 
--- 6. What are the shortest and longest movie duration? Name the values max_duration and min_duration.
+select rental_duration as short_rent from sakila.film
+order by rental_duration asc
+limit 1;
 
--- 7. What's the average movie duration?
+select rental_duration as long_rent from sakila.film
+order by rental_duration desc
+limit 1;
 
--- 8. What's the average movie duration expressed in format (hours, minutes)?
+select min(length) as min_duration from sakila.film;
 
--- 9. How many movies longer than 3 hours?
+select max(length) as max_duration from sakila.film;
 
--- 10. Get the name and email formatted. Example: Mary SMITH - mary.smith@sakilacustomer.org.
+select avg(length) from sakila.film;
 
--- 11. What's the length of the longest film title?
+-- What's the average movie duration expressed in format (hours, minutes)?
+ -- select date_format(convert(avg(length), '%H- from sakila.film; STUCK
+
+SELECT sum(length)
+FROM sakila.film
+where length > 90;
+
+-- 10. ???
+
+select max(length) from sakila.film;
